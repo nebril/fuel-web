@@ -1,0 +1,100 @@
+{
+  "mds": [
+    {
+      "id": 1,
+      "level": "mirror",
+      "devices": [
+        "/dev/sdb",
+        "/dev/sdc"
+      ],
+      "spares": [
+        "/dev/sdd"
+      ]
+    }
+  ],
+  "partitions": [
+    {
+      "id": 1,
+      "device": "/dev/sda",
+      "begin": 0,
+      "end": 9000
+    },
+    {
+      "id": 2,
+      "device": "/dev/sda",
+      "begin": 9001,
+      "end": 9100
+    },
+    {
+      "id": 3,
+      "device_id": "md/1",
+      "begin": 0,
+      "end": 10000
+    }
+  ],
+  "pvs": [
+    {
+      "id": 1,
+      "device": "/dev/sdg"
+    },
+    {
+      "id": 2,
+      "device_id": "partition/3"
+    },
+    {
+      "id": 3,
+      "device_id": "partition/1"
+    }
+  ],
+  "vgs": [
+    {
+      "id": 1,
+      "name": "olaboga",
+      "pvs_ids": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "name": "os",
+      "pvs_ids": [
+        1
+      ]
+    }
+  ],
+  "lvs": [
+    {
+      "id": 1,
+      "name": "music",
+      "vg_id": 1,
+      "size": "15B"
+    },
+    {
+      "id": 2,
+      "name": "home",
+      "vg_id": 2,
+      "size": "12kB"
+    }
+  ],
+  "fss": [
+    {
+      "id": 1,
+      "mount": "/",
+      "device_id": "lv/2",
+      "type": "xfs"
+    },
+    {
+      "id": 2,
+      "mount": "/tmp",
+      "device_id": "partition/2",
+      "type": "ext2"
+    },
+    {
+      "id": 3,
+      "mount": "/music/britney",
+      "device_id": "lv/1",
+      "type": "xfs"
+    }
+  ]
+}
