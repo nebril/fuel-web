@@ -16,8 +16,8 @@ import copy
 
 from oslotest import base as test_base
 
-from fuel_agent.validators import KsSpacesValidator
 from fuel_agent import errors
+from fuel_agent.validators import KsSpacesValidator
 
 SAMPLE_SCHEME = [
     {

@@ -15,8 +15,8 @@
 import jsonschema
 
 from fuel_agent import errors
-from fuel_agent.drivers.base import BaseValidator
 from fuel_agent.openstack.common import log as logging
+from fuel_agent.validators.base import BaseValidator
 
 LOG = logging.getLogger(__name__)
 

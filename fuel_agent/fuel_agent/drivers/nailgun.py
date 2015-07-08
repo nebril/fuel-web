@@ -18,7 +18,7 @@ import math
 import os
 import yaml
 
-from oslo.serialization import jsonutils
+from oslo_serialization import jsonutils
 import six
 from six.moves.urllib.parse import urljoin
 from six.moves.urllib.parse import urlparse
@@ -27,10 +27,10 @@ from six.moves.urllib.parse import urlsplit
 from fuel_agent.drivers.base import BaseDataDriver
 from fuel_agent import errors
 from fuel_agent import objects
-from fuel_agent import validators
 from fuel_agent.openstack.common import log as logging
 from fuel_agent.utils import hardware as hu
 from fuel_agent.utils import utils
+from fuel_agent import validators
 
 LOG = logging.getLogger(__name__)
 
