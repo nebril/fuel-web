@@ -10,6 +10,7 @@ class VolumesHumanFormatParser(object):
     scheme_validator = validators.HumanFormatSchemeValidator
     validators = [
         validators.PartitionSchemeValidator,
+        validators.HumanFormatSchemeValidator
     ]
 
     @classmethod
