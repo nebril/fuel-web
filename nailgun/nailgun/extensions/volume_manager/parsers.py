@@ -3,9 +3,14 @@ from oslo.serialization import jsonutils
 import yaml
 
 from fuel_agent import objects
+from nailgun.extensions.volume_manager import validators
 
 
 class VolumesHumanFormatParser(object):
+    scheme_validator = validators.HumanFormatSchemeValidator
+    validators = [
+        validators.PartitionSchemeValidator,
+    ]
 
     @classmethod
     def from_path(cls, path):
@@ -17,9 +22,10 @@ class VolumesHumanFormatParser(object):
         self._data = data
         self.references = {}
 
-    def is_valid(self):
-        for validator in self.validators:
-            validator(self.partition_scheme)
+    def validate(self):
+        self.scheme_validator(self._data)
+        for validator in validators:
+            validator(self)
 
     @property
     def json(self):
